@@ -29,6 +29,12 @@ class CategoriesRepository {
   list(): Category[] {
     return this.categories;
   }
+
+  findByName(name: string): boolean {
+    const checkCategory = this.categories.some(item => item.name === name);
+
+    return checkCategory;
+  }
 }
 
 export default CategoriesRepository;
