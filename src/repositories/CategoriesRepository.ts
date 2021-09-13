@@ -1,12 +1,11 @@
 import Category from '../models/Category';
+import {
+  ICreateCategoryDTO,
+  ICategoriesRepository
+} from './ICategoriesRepository';
 
-interface ICreateCategoryDTO {
-  name: string;
-  description: string;
-}
-
-class CategoriesRepository {
-  private categories: Category[];
+class CategoriesRepository implements ICategoriesRepository {
+  private readonly categories: Category[];
 
   constructor() {
     this.categories = [];
@@ -26,14 +25,12 @@ class CategoriesRepository {
     return category;
   }
 
-  list(): Category[] {
-    return this.categories;
+  findByName(name: string): boolean {
+    return this.categories.some(item => item.name === name);
   }
 
-  findByName(name: string): boolean {
-    const checkCategory = this.categories.some(item => item.name === name);
-
-    return checkCategory;
+  list(): Category[] {
+    return this.categories;
   }
 }
 
