@@ -1,5 +1,5 @@
 import { ISpecificationRepository } from '../../repositories/Specification/ISpecificationRepository';
-import SpecificationModel from '../../models/Specification/SpecificationModel';
+import SpecificationModel from '../../models/SpecificationModel';
 
 export interface IRequest {
   name: string;

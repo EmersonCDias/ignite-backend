@@ -1,4 +1,4 @@
-import CategoryModel from '../../models/Category/CategoryModel';
+import CategoryModel from '../../models/CategoryModel';
 
 export interface ICreateCategoryDTO {
   name: string;

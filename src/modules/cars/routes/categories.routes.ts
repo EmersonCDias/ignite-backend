@@ -1,19 +1,16 @@
 import { Router } from 'express';
 
-import createCategoryController, {
-  categoriesRepository
-} from '../instances/Category/CategoryInstance';
+import createCategoryController from '../controllers/Category/CreateCategory';
+import listCategoriesController from '../controllers/Category/ListCategories';
 
 const categoriesRoutes = Router();
 
 categoriesRoutes.post('/', (request, response) =>
-  createCategoryController.handle(request, response)
+  createCategoryController.intermediate(request, response)
 );
 
-categoriesRoutes.get('/', (request, response) => {
-  const categories = categoriesRepository.list();
-
-  return response.status(200).json(categories);
-});
+categoriesRoutes.get('/', (request, response) =>
+  listCategoriesController.intermediate(request, response)
+);
 
 export default categoriesRoutes;
