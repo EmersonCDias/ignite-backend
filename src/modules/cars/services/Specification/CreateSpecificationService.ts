@@ -9,11 +9,12 @@ export interface IRequest {
 class CreateSpecificationService {
   constructor(private specificationRepository: ISpecificationRepository) {}
 
-  execute({ name, description }: IRequest): SpecificationModel {
+  start({ name, description }: IRequest): SpecificationModel {
     const specificationAlreadyExists =
       this.specificationRepository.findByName(name);
 
-    if (specificationAlreadyExists) throw new Error('models already exists');
+    if (specificationAlreadyExists)
+      throw new Error('Specification already exists!');
 
     return this.specificationRepository.create({
       name,
