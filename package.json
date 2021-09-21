@@ -11,12 +11,15 @@
     "start": "ts-node src/config/server.ts"
   },
   "dependencies": {
+    "csv-parse": "^4.16.3",
     "express": "^4.17.1",
+    "multer": "^1.4.3",
     "ts-node": "^10.2.1",
     "uuid": "^8.3.2"
   },
   "devDependencies": {
     "@types/express": "^4.17.13",
+    "@types/multer": "^1.4.7",
     "@types/node": "^16.9.1",
     "@types/uuid": "^8.3.1",
     "@typescript-eslint/eslint-plugin": "^4.31.0",

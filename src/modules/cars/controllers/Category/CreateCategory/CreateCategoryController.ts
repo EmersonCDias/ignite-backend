@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import CreateCategoryService from '../../../services/Category/CreateCategoryService';
+import Index from '../../../services/Category/CreateCategoryService';
 
 class CreateCategoryController {
-  constructor(private createCategoryService: CreateCategoryService) {}
+  constructor(private createCategoryService: Index) {}
 
   intermediate(request: Request, response: Response) {
     const { name, description } = request.body;

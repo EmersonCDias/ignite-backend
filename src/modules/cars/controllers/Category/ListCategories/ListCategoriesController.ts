@@ -1,9 +1,9 @@
 import { Request, Response } from 'express';
 
-import ListCategoriesService from '../../../services/Category/ListCategoriesService';
+import Index from '../../../services/Category/ListCategoriesService';
 
 class ListCategoriesController {
-  constructor(private listCategoriesService: ListCategoriesService) {}
+  constructor(private listCategoriesService: Index) {}
 
   intermediate(request: Request, response: Response) {
     const categories = this.listCategoriesService.start();
