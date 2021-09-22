@@ -10,7 +10,7 @@ class ImportCategoryController {
 
     const fileReturned = this.importCategoryService.start(file);
 
-    return response.send(fileReturned);
+    return response.status(200).json(fileReturned);
   }
 }
 

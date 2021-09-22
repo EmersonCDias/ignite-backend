@@ -12,7 +12,8 @@ class CreateCategoryService {
   start({ name, description }: IRequest): CategoryModel {
     const categoryAlreadyExists = this.categoriesRepository.findByName(name);
 
-    if (categoryAlreadyExists) throw new Error('Category already exists!');
+    if (categoryAlreadyExists)
+      throw new Error(`The category ${name} already exists!`);
 
     return this.categoriesRepository.create({
       name,
