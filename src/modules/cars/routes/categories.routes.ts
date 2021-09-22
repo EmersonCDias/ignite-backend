@@ -6,7 +6,6 @@ import listCategoriesController from '../controllers/Category/ListCategories';
 import importCategoryController from '../controllers/Category/ImportCategory';
 
 const categoriesRoutes = Router();
-
 const upload = multer({
   dest: './tmp'
 });
