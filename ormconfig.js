@@ -5,12 +5,15 @@ module.exports = {
   password: process.env.POSTGRES_PASS,
   database: process.env.POSTGRES_DB,
   entities: [
-    "src/modules/**/entities/*.ts"
+    "./src/modules/**/entities/*.ts"
   ],
   migrations: [
     "./src/database/migrations/*.ts"
   ],
   cli: {
     migrationsDir: "./src/database/migrations"
+  },
+  ssl: {
+    rejectUnauthorized: false,
   }
 }
