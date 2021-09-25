@@ -1,5 +1,5 @@
 import { ICategoryRepository } from '../../../repositories/Category/ICategoryRepository';
-import CategoryModel from '../../../models/CategoryModel';
+import CategoryEntity from '../../../entities/CategoryEntity';
 
 export interface IRequest {
   name: string;
@@ -9,16 +9,20 @@ export interface IRequest {
 class CreateCategoryService {
   constructor(private categoriesRepository: ICategoryRepository) {}
 
-  start({ name, description }: IRequest): CategoryModel {
-    const categoryAlreadyExists = this.categoriesRepository.findByName(name);
+  async start({ name, description }: IRequest): Promise<CategoryEntity> {
+    const categoryAlreadyExists = await this.categoriesRepository.findByName(
+      name
+    );
 
     if (categoryAlreadyExists)
       throw new Error(`The category ${name} already exists!`);
 
-    return this.categoriesRepository.create({
+    const category = await this.categoriesRepository.create({
       name,
       description
     });
+
+    return category;
   }
 }
 

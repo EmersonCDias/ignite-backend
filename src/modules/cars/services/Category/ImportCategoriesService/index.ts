@@ -2,6 +2,7 @@ import fs from 'fs';
 import csvParse from 'csv-parse';
 
 import CategoryRepository from '../../../repositories/Category/CategoryRepository';
+import CategoryEntity from '../../../entities/CategoryEntity';
 
 interface IImportCategory {
   name: string;
@@ -39,15 +40,21 @@ class ImportCategoriesService {
     });
   }
 
-  async start(file: Express.Multer.File): Promise<void> {
-    const categories = await this.loadCategories(file);
+  async start(file: Express.Multer.File): Promise<CategoryEntity[] | void> {
+    const categoriesLoaded = await this.loadCategories(file);
 
-    categories.map(category => {
+    categoriesLoaded.map(async category => {
       const { name } = category;
 
-      const categoryExists = this.categoryRepository.findByName(name);
+      const categoryExists = await this.categoryRepository.findByName(name);
 
-      if (!categoryExists) this.categoryRepository.create({ ...category });
+      if (!categoryExists) {
+        const categories = await this.categoryRepository.create({
+          ...category
+        });
+
+        return categories;
+      }
 
       return null;
     });

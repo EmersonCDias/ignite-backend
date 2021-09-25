@@ -1,11 +1,13 @@
 import { ICategoryRepository } from '../../../repositories/Category/ICategoryRepository';
-import CategoryModel from '../../../models/CategoryModel';
+import CategoryEntity from '../../../entities/CategoryEntity';
 
 class ListCategoriesService {
   constructor(private categoryRepository: ICategoryRepository) {}
 
-  start(): CategoryModel[] {
-    return this.categoryRepository.list();
+  async start(): Promise<CategoryEntity[]> {
+    const categories = await this.categoryRepository.list();
+
+    return categories;
   }
 }
 

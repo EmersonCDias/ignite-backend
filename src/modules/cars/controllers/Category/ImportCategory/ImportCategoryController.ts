@@ -5,10 +5,10 @@ import ImportCategoriesService from '../../../services/Category/ImportCategories
 class ImportCategoryController {
   constructor(private importCategoryService: ImportCategoriesService) {}
 
-  intermediate(request: Request, response: Response): Response {
+  async intermediate(request: Request, response: Response): Promise<Response> {
     const { file } = request;
 
-    const fileReturned = this.importCategoryService.start(file);
+    const fileReturned = await this.importCategoryService.start(file);
 
     return response.status(200).json(fileReturned);
   }

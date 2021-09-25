@@ -5,10 +5,10 @@ import Index from '../../../services/Category/CreateCategoryService';
 class CreateCategoryController {
   constructor(private createCategoryService: Index) {}
 
-  intermediate(request: Request, response: Response) {
+  async intermediate(request: Request, response: Response): Promise<Response> {
     const { name, description } = request.body;
 
-    const category = this.createCategoryService.start({
+    const category = await this.createCategoryService.start({
       name,
       description
     });

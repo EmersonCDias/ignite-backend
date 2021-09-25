@@ -5,8 +5,8 @@ import Index from '../../../services/Category/ListCategoriesService';
 class ListCategoriesController {
   constructor(private listCategoriesService: Index) {}
 
-  intermediate(request: Request, response: Response) {
-    const categories = this.listCategoriesService.start();
+  async intermediate(request: Request, response: Response): Promise<Response> {
+    const categories = await this.listCategoriesService.start();
 
     return response.status(200).json(categories);
   }

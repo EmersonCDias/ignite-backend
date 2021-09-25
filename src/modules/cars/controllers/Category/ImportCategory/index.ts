@@ -2,10 +2,14 @@ import CategoryRepository from '../../../repositories/Category/CategoryRepositor
 import ImportCategoriesService from '../../../services/Category/ImportCategoriesService';
 import ImportCategoryController from './ImportCategoryController';
 
-const categoryRepository = CategoryRepository.getInstance();
-const importCategoriesService = new ImportCategoriesService(categoryRepository);
-const importCategoryController = new ImportCategoryController(
-  importCategoriesService
-);
+export default (): ImportCategoryController => {
+  const categoryRepository = new CategoryRepository();
+  const importCategoriesService = new ImportCategoriesService(
+    categoryRepository
+  );
+  const importCategoryController = new ImportCategoryController(
+    importCategoriesService
+  );
 
-export default importCategoryController;
+  return importCategoryController;
+};
