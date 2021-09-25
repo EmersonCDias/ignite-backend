@@ -1,5 +1,6 @@
 import fs from 'fs';
 import csvParse from 'csv-parse';
+import { Express } from 'express';
 
 import CategoryRepository from '../../../repositories/Category/CategoryRepository';
 import CategoryEntity from '../../../entities/CategoryEntity';
