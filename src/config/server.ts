@@ -5,7 +5,7 @@ import '../database';
 import routes from '../routes';
 import swaggerFile from './swagger.json';
 
-const PORT: string | number = process.env.PORT || 5000;
+const PORT: string | number = process.env.PORT || 3333;
 const app = express();
 
 app.use(express.json());
