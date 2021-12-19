@@ -1,9 +1,10 @@
 module.exports = {
   type: "postgres",
-  host: process.env.POSTGRES_HOST,
-  username: process.env.POSTGRES_USERNAME,
-  password: process.env.POSTGRES_PASS,
-  database: process.env.POSTGRES_DB,
+  port: 5432,
+  host: "localhost",
+  username: "docker",
+  password: "ignite",
+  database: "rentx",
   entities: [
     "./src/modules/**/entities/*.ts"
   ],
@@ -13,7 +14,7 @@ module.exports = {
   cli: {
     migrationsDir: "./src/database/migrations"
   },
-  ssl: {
-    rejectUnauthorized: false,
-  }
+  // ssl: {
+  //   rejectUnauthorized: false,
+  // }
 }
