@@ -3,14 +3,14 @@ version: '2.2.1'
 services:
   database:
     image: postgres
-    container_name: database_ignite
+    container_name: rentx_database
     restart: always
     ports:
       - 5432:5432
     environment:
-      - POSTGRES_USER=docker
-      - POSTGRES_PASSWORD=ignite
-      - POSTGRES_DB=rentx
+      - POSTGRES_USER=rentx_db_username
+      - POSTGRES_PASSWORD=rentx_db_password
+      - POSTGRES_DB=rentx_db
     volumes:
       - pgdata:/data/postgres
 
