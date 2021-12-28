@@ -4,7 +4,7 @@
   "main": "index.js",
   "license": "MIT",
   "engines": {
-    "node": "16.9.1"
+    "node": "16.13.1"
   },
   "scripts": {
     "dev": "ts-node-dev --inspect --transpile-only --ignore-watch node_modules --respawn src/config/server.ts",
@@ -20,6 +20,7 @@
     "reflect-metadata": "^0.1.13",
     "swagger-ui-express": "^4.1.6",
     "ts-node": "^10.2.1",
+    "tsyringe": "^4.6.0",
     "typeorm": "0.2.25",
     "uuid": "^8.3.2"
   },
